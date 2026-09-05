@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Government | Empire of Nova-Berlandia</title>
 
     <style>
@@ -133,7 +132,7 @@
             background: #f3f2f1;
         }
 
-        /* DARK OVERLAY */
+        /* OVERLAY */
 
         .overlay {
             position: fixed;
@@ -236,21 +235,21 @@
             margin-bottom: 5px;
         }
 
-        /* COAT OF ARMS */
+        /* PERSONAL COAT OF ARMS */
 
         .arms-box {
             background: white;
             border: 1px solid #d8d8d8;
             padding: 40px;
             display: grid;
-            grid-template-columns: 430px 1fr;
+            grid-template-columns: 600px 1fr;
             gap: 45px;
             align-items: center;
         }
 
         .coat-of-arms {
-            width: 430px;
-            height: 520px;
+            width: 600px;
+            height: 400px;
             object-fit: contain;
             background: white;
             display: block;
@@ -280,6 +279,8 @@
             font-size: 22px;
         }
 
+        /* IMPERIAL FAMILY */
+
         /* FOOTER */
 
         footer {
@@ -300,6 +301,21 @@
         }
 
         /* MOBILE */
+
+        @media (max-width: 900px) {
+
+            .arms-box {
+                grid-template-columns: 1fr;
+            }
+
+            .coat-of-arms {
+                width: 100%;
+                max-width: 600px;
+                height: auto;
+                max-height: 450px;
+                margin: auto;
+            }
+        }
 
         @media (max-width: 800px) {
 
@@ -347,15 +363,7 @@
             }
 
             .arms-box {
-                grid-template-columns: 1fr;
                 padding: 25px;
-            }
-
-            .coat-of-arms {
-                width: 100%;
-                max-width: 400px;
-                height: 480px;
-                margin: auto;
             }
         }
     </style>
@@ -365,43 +373,40 @@
 
     <!-- SLIDING MENU -->
 
-    <div class="overlay" id="overlay" onclick="closeMenu()"></div>
+    <div
+        class="overlay"
+        id="overlay"
+        onclick="closeMenu()">
+    </div>
 
-    <aside class="side-menu" id="sideMenu">
+    <aside
+        class="side-menu"
+        id="sideMenu">
 
         <div class="menu-header">
             <h2>Government Menu</h2>
 
-            <button class="close-button" onclick="closeMenu()">
+            <button
+                class="close-button"
+                onclick="closeMenu()"
+                aria-label="Close menu">
                 ×
             </button>
         </div>
 
         <div class="menu-links">
 
-            <a href="index.html">
-                Home
-            </a>
+            <a href="index.html">Home</a>
 
-            <a href="government.html">
-                Government
-            </a>
+            <a href="government.html">Government</a>
 
-            <a href="departments.html">
-                Departments
-            </a>
+            <a href="departments.html">Departments</a>
 
-            <a href="history.html">
-                History
-            </a>
+            <a href="history.html">History</a>
 
-            <a href="citizenship.html">
-                Citizenship
-            </a>
+            <a href="citizenship.html">Citizenship</a>
 
-            <a href="contact.html">
-                Contact
-            </a>
+            <a href="contact.html">Contact</a>
 
         </div>
 
@@ -419,8 +424,7 @@
                 <img
                     src="flag.png"
                     alt="Flag of Nova-Berlandia"
-                    class="site-flag"
-                >
+                    class="site-flag">
 
                 <div>
 
@@ -436,12 +440,10 @@
 
             </div>
 
-
             <button
                 class="menu-button"
                 onclick="openMenu()"
-                aria-label="Open menu"
-            >
+                aria-label="Open menu">
                 ☰
             </button>
 
@@ -461,8 +463,8 @@
             </h1>
 
             <p>
-                Learn about the constitutional institutions and leadership
-                of the Empire of Nova-Berlandia.
+                Learn about the constitutional institutions and
+                leadership of the Empire of Nova-Berlandia.
             </p>
 
         </div>
@@ -470,7 +472,7 @@
     </section>
 
 
-    <!-- CONTENT -->
+    <!-- MAIN CONTENT -->
 
     <main class="container">
 
@@ -488,8 +490,7 @@
                 <img
                     src="portrait.png"
                     alt="Portrait of Emperor Reginald II"
-                    class="emperor-portrait"
-                >
+                    class="emperor-portrait">
 
                 <div>
 
@@ -498,22 +499,24 @@
                     </h3>
 
                     <p>
-                        The Emperor of Nova-Berlandia, otherwise known as the
-                        Imperial Berlandian Crown, is the constitutional head
-                        of state of the Empire of Nova-Berlandia.
+                        The Emperor of Nova-Berlandia, otherwise known
+                        as the Imperial Berlandian Crown, is the
+                        constitutional head of state of the Empire
+                        of Nova-Berlandia.
                     </p>
 
                     <p>
-                        The office in its present form was established on
-                        <strong>20 August 2026</strong>, with
-                        <strong>Reginald II</strong> serving as the first
-                        monarch and incumbent Emperor.
+                        The office in its present form was established
+                        on <strong>20 August 2026</strong>, with
+                        <strong>Reginald II</strong> serving as the
+                        first monarch and incumbent Emperor.
                     </p>
 
                     <p>
-                        The Emperor serves as a person of national unity and
-                        security, protects and upholds the Constitution, and
-                        represents Nova-Berlandia in diplomatic matters.
+                        The Emperor serves as a person of national
+                        unity and security, protects and upholds the
+                        Constitution, and represents Nova-Berlandia
+                        in diplomatic matters.
                     </p>
 
                     <div class="responsibilities">
@@ -525,7 +528,8 @@
 
                         <div class="responsibility">
                             <strong>National Security</strong>
-                            Represents the security and stability of the nation.
+                            Represents the security and stability
+                            of the nation.
                         </div>
 
                         <div class="responsibility">
@@ -535,18 +539,20 @@
 
                         <div class="responsibility">
                             <strong>Chief Diplomat</strong>
-                            Represents Nova-Berlandia in diplomatic affairs.
+                            Represents Nova-Berlandia in diplomatic
+                            affairs.
                         </div>
 
                         <div class="responsibility">
                             <strong>National Unity</strong>
-                            Serves as a symbol of unity for the Berlandian nation.
+                            Serves as a symbol of unity for the
+                            Berlandian nation.
                         </div>
 
                         <div class="responsibility">
                             <strong>Parliament</strong>
-                            Serves as a lifelong sitting member of Parliament
-                            and may serve as Acting Speaker.
+                            Serves as a lifelong sitting member of
+                            Parliament and may serve as Acting Speaker.
                         </div>
 
                     </div>
@@ -558,7 +564,7 @@
         </section>
 
 
-        <!-- COAT OF ARMS -->
+        <!-- PERSONAL COAT OF ARMS -->
 
         <section class="section">
 
@@ -569,10 +575,9 @@
             <div class="arms-box">
 
                 <img
-                    src="coat-of-arms.png"
+                    src="emperor-personal-coat-of-arms.png"
                     alt="Personal Coat of Arms of Emperor Reginald II"
-                    class="coat-of-arms"
-                >
+                    class="coat-of-arms">
 
                 <div>
 
@@ -582,14 +587,14 @@
 
                     <p>
                         The personal coat of arms of Emperor Reginald II
-                        represents the Emperor and his position within the
-                        Empire of Nova-Berlandia.
+                        represents the Emperor and his position within
+                        the Empire of Nova-Berlandia.
                     </p>
 
                     <p>
-                        The arms are associated with the Emperor personally
-                        and are distinct from the national symbols of the
-                        Empire.
+                        The arms are associated with the Emperor
+                        personally and are distinct from the national
+                        symbols of the Empire.
                     </p>
 
                 </div>
@@ -599,7 +604,7 @@
         </section>
 
 
-        <!-- INSTITUTIONS -->
+        <!-- CONSTITUTIONAL INSTITUTIONS -->
 
         <section class="section">
 
@@ -617,8 +622,8 @@
 
                     <p>
                         Parliament is the legislative institution of
-                        Nova-Berlandia. The Emperor is a lifelong sitting
-                        member and may serve as Acting Speaker.
+                        Nova-Berlandia. The Emperor is a lifelong
+                        sitting member and may serve as Acting Speaker.
                     </p>
 
                 </div>
@@ -631,9 +636,9 @@
                     </h3>
 
                     <p>
-                        The Government of Nova-Berlandia is responsible for
-                        the administration of the Empire and the implementation
-                        of government policy.
+                        The Government of Nova-Berlandia is responsible
+                        for the administration of the Empire and the
+                        implementation of government policy.
                     </p>
 
                 </div>
@@ -659,8 +664,8 @@
 
                 <p>
                     The Imperial Family is officially known as the
-                    <strong>House of Torres</strong>, consisting of the family
-                    of the incumbent Emperor.
+                    <strong>House of Torres</strong>, consisting of
+                    the family of the incumbent Emperor.
                 </p>
 
                 <p>
@@ -684,23 +689,25 @@
             <div class="institution">
 
                 <p>
-                    The previous office of King of Nova-Berlandia existed
-                    from <strong>28 November 2025</strong> until
-                    <strong>17 February 2026</strong>, with Shane serving
-                    as its only reigning monarch.
+                    The previous office of King of Nova-Berlandia
+                    existed from <strong>28 November 2025</strong>
+                    until <strong>17 February 2026</strong>, with
+                    Shane serving as its only reigning monarch.
                 </p>
 
                 <p>
-                    Following the dissolution of the United Commonwealth on
-                    17 February 2026 and its replacement by the Republic of
-                    Keystone, the position of King was abolished.
+                    Following the dissolution of the United
+                    Commonwealth on 17 February 2026 and its
+                    replacement by the Republic of Keystone, the
+                    position of King was abolished.
                 </p>
 
                 <p>
-                    On <strong>20 August 2026</strong>, following the
-                    formation of the Provisional Government, the monarchy
-                    was restored. Shane was initially announced as King
-                    before the title was changed to Emperor of Nova-Berlandia.
+                    On <strong>20 August 2026</strong>, following
+                    the formation of the Provisional Government,
+                    the monarchy was restored. Shane was initially
+                    announced as King before the title was changed
+                    to Emperor of Nova-Berlandia.
                 </p>
 
             </div>
@@ -738,13 +745,31 @@
     <script>
 
         function openMenu() {
-            document.getElementById("sideMenu").classList.add("open");
-            document.getElementById("overlay").classList.add("open");
+
+            document
+                .getElementById("sideMenu")
+                .classList
+                .add("open");
+
+            document
+                .getElementById("overlay")
+                .classList
+                .add("open");
+
         }
 
         function closeMenu() {
-            document.getElementById("sideMenu").classList.remove("open");
-            document.getElementById("overlay").classList.remove("open");
+
+            document
+                .getElementById("sideMenu")
+                .classList
+                .remove("open");
+
+            document
+                .getElementById("overlay")
+                .classList
+                .remove("open");
+
         }
 
     </script>
