@@ -4,45 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Empire of Nova-Berlandia | Official Government Website</title>
-
-    <meta name="description" content="The official government website of the Empire of Nova-Berlandia.">
+    <title>Home | Empire of Nova-Berlandia</title>
 
     <style>
         * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
         }
 
         body {
+            margin: 0;
             font-family: Arial, Helvetica, sans-serif;
             background: #f3f2f1;
             color: #1b1b1b;
             line-height: 1.6;
         }
 
-        .top-bar {
-            background: #1d1d1d;
-            color: white;
-            font-size: 14px;
-        }
-
-        .top-container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 8px 24px;
-        }
+        /* HEADER */
 
         header {
             background: white;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #d8d8d8;
         }
 
-        .header-container {
+        .header-inner {
             max-width: 1200px;
             margin: auto;
-            padding: 22px 24px;
+            padding: 18px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
             display: flex;
             align-items: center;
             gap: 20px;
@@ -66,53 +59,142 @@
             color: #555;
         }
 
-        nav {
-            background: #242424;
-        }
+        /* MENU BUTTON */
 
-        .nav-container {
-            max-width: 1200px;
-            margin: auto;
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        nav a {
+        .menu-button {
+            background: #1b1b1b;
             color: white;
-            text-decoration: none;
-            padding: 15px 20px;
+            border: none;
+            width: 55px;
+            height: 55px;
+            font-size: 28px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu-button:hover {
+            background: #333;
+        }
+
+        /* SLIDING MENU */
+
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -360px;
+            width: 360px;
+            height: 100vh;
+            background: white;
+            z-index: 1000;
+            box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2);
+            transition: right 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .side-menu.open {
+            right: 0;
+        }
+
+        .menu-header {
+            background: #1b1b1b;
+            color: white;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .menu-header h2 {
+            margin: 0;
+            font-size: 22px;
+        }
+
+        .close-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .menu-links a {
             display: block;
-            font-size: 15px;
+            padding: 20px 25px;
+            color: #1b1b1b;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            border-bottom: 1px solid #ddd;
         }
 
-        nav a:hover {
-            background: #3a3a3a;
-            text-decoration: underline;
+        .menu-links a:hover {
+            background: #f3f2f1;
         }
 
-        main {
-            max-width: 1200px;
-            margin: auto;
-            padding: 35px 24px 60px;
+        /* OVERLAY */
+
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
         }
+
+        .overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* HERO */
 
         .hero {
             background: white;
-            border-left: 6px solid #333;
-            padding: 40px;
-            margin-bottom: 35px;
+            border-bottom: 1px solid #d8d8d8;
+        }
+
+        .hero-inner {
+            max-width: 1200px;
+            margin: auto;
+            padding: 70px 25px;
         }
 
         .hero h1 {
-            font-size: 42px;
-            line-height: 1.15;
-            margin-bottom: 15px;
+            font-size: 46px;
+            margin: 0 0 15px;
+            max-width: 900px;
         }
 
         .hero p {
-            max-width: 750px;
-            font-size: 18px;
+            font-size: 20px;
             color: #444;
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+
+        .hero-button {
+            display: inline-block;
+            background: #1b1b1b;
+            color: white;
+            text-decoration: none;
+            padding: 14px 22px;
+            font-weight: bold;
+        }
+
+        .hero-button:hover {
+            background: #333;
+        }
+
+        /* CONTENT */
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 45px 25px;
         }
 
         .section {
@@ -120,155 +202,157 @@
         }
 
         .section h2 {
-            font-size: 28px;
+            font-size: 30px;
             margin-bottom: 20px;
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 10px;
+            border-bottom: 4px solid #1b1b1b;
+            padding-bottom: 8px;
         }
 
-        .services {
+        /* NOTICE */
+
+        .notice {
+            background: white;
+            border-left: 6px solid #1b1b1b;
+            padding: 25px;
+            border-top: 1px solid #d8d8d8;
+            border-right: 1px solid #d8d8d8;
+            border-bottom: 1px solid #d8d8d8;
+        }
+
+        .notice h3 {
+            margin-top: 0;
+            font-size: 22px;
+        }
+
+        /* CARDS */
+
+        .cards {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
+            gap: 20px;
         }
 
-        .service {
+        .card {
             background: white;
             border: 1px solid #d8d8d8;
             padding: 25px;
         }
 
-        .service:hover {
-            border-color: #555;
+        .card h3 {
+            margin-top: 0;
+            font-size: 22px;
         }
 
-        .service h3 {
-            font-size: 20px;
-            margin-bottom: 8px;
-        }
-
-        .service p {
-            color: #555;
-            font-size: 15px;
-            margin-bottom: 12px;
-        }
-
-        .service a {
-            color: #1a4b8c;
+        .card a {
+            color: #1b1b1b;
             font-weight: bold;
             text-decoration: underline;
         }
 
-        .news-item {
+        /* NEWS */
+
+        .news {
             background: white;
-            border-bottom: 1px solid #ddd;
-            padding: 20px 25px;
-        }
-
-        .news-item:first-child {
-            border-top: 1px solid #ddd;
-        }
-
-        .news-date {
-            font-size: 13px;
-            color: #666;
-        }
-
-        .news-item h3 {
-            margin: 4px 0;
-            font-size: 19px;
-        }
-
-        .news-item a {
-            color: #1a4b8c;
-        }
-
-        .quick-links {
-            background: #e8e8e8;
+            border: 1px solid #d8d8d8;
             padding: 25px;
         }
 
-        .quick-links ul {
-            list-style: none;
+        .news-date {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .news h3 {
+            margin-bottom: 5px;
+            font-size: 23px;
+        }
+
+        /* QUICK LINKS */
+
+        .quick-links {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
         }
 
-        .quick-links li {
-            padding: 10px 0;
-        }
-
-        .quick-links a {
-            color: #1a4b8c;
+        .quick-link {
+            background: white;
+            border: 1px solid #d8d8d8;
+            padding: 20px;
+            text-decoration: none;
+            color: #1b1b1b;
             font-weight: bold;
+            font-size: 18px;
         }
 
-        .notice {
-            background: #fff3cd;
-            border-left: 5px solid #856404;
-            padding: 18px 22px;
-            margin-bottom: 35px;
+        .quick-link:hover {
+            background: #f3f2f1;
         }
 
-        .notice strong {
-            display: block;
-            margin-bottom: 4px;
-        }
+        /* FOOTER */
 
         footer {
-            background: #242424;
+            background: #1b1b1b;
             color: white;
-            padding: 40px 24px;
+            margin-top: 30px;
         }
 
-        .footer-container {
+        .footer-inner {
             max-width: 1200px;
             margin: auto;
+            padding: 30px 25px;
         }
 
-        .footer-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 25px;
-            margin: 20px 0;
+        .footer-inner p {
+            margin: 5px 0;
+            color: #ddd;
         }
 
-        .footer-links a {
-            color: white;
-            text-decoration: underline;
-        }
-
-        .copyright {
-            color: #bbb;
-            font-size: 13px;
-            border-top: 1px solid #555;
-            padding-top: 20px;
-        }
+        /* MOBILE */
 
         @media (max-width: 800px) {
 
-            .services {
-                grid-template-columns: 1fr;
+            .header-inner {
+                padding: 15px;
             }
 
-            .quick-links ul {
-                grid-template-columns: 1fr;
+            .site-title {
+                font-size: 19px;
             }
 
-            .hero {
-                padding: 30px 25px;
+            .site-subtitle {
+                font-size: 12px;
+            }
+
+            .site-flag {
+                width: 70px;
+                height: 47px;
+            }
+
+            .menu-button {
+                width: 50px;
+                height: 50px;
+            }
+
+            .side-menu {
+                width: 85%;
+                right: -85%;
             }
 
             .hero h1 {
-                font-size: 32px;
+                font-size: 34px;
             }
 
-            .header-container {
-                align-items: flex-start;
+            .hero-inner {
+                padding: 50px 20px;
             }
 
-            nav a {
-                width: 50%;
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-links {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -276,221 +360,287 @@
 
 <body>
 
-    <div class="top-bar">
-        <div class="top-container">
-            Official website of the Empire of Nova-Berlandia
-        </div>
+    <!-- SLIDING MENU -->
+
+    <div
+        class="overlay"
+        id="overlay"
+        onclick="closeMenu()">
     </div>
 
-    <header>
-        <div class="header-container">
+    <aside
+        class="side-menu"
+        id="sideMenu">
 
-            <img
-                src="flag.png"
-                alt="Flag of Nova-Berlandia"
-                class="site-flag"
-            >
+        <div class="menu-header">
 
-            <div>
-                <div class="site-title">
-                    Empire of Nova-Berlandia
-                </div>
+            <h2>
+                Government Menu
+            </h2>
 
-                <div class="site-subtitle">
-                    Official Government Website
-                </div>
-            </div>
+            <button
+                class="close-button"
+                onclick="closeMenu()"
+                aria-label="Close menu">
+                ×
+            </button>
 
         </div>
+
+        <div class="menu-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="government.html">
+                Government
+            </a>
+
+            <a href="departments.html">
+                Departments
+            </a>
+
+            <a href="history.html">
+                History
+            </a>
+
+            <a href="citizenship.html">
+                Citizenship
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="header-inner">
+
+            <div class="brand">
+
+                <img
+                    src="flag.png"
+                    alt="Flag of Nova-Berlandia"
+                    class="site-flag">
+
+                <div>
+
+                    <div class="site-title">
+                        Empire of Nova-Berlandia
+                    </div>
+
+                    <div class="site-subtitle">
+                        Official Government Website
+                    </div>
+
+                </div>
+
+            </div>
+
+            <button
+                class="menu-button"
+                onclick="openMenu()"
+                aria-label="Open menu">
+                ☰
+            </button>
+
+        </div>
+
     </header>
 
-    <nav>
-        <div class="nav-container">
-            <a href="index.html">Home</a>
-            <a href="government.html">Government</a>
-            <a href="departments.html">Departments</a>
-            <a href="history.html">History</a>
-            <a href="citizenship.html">Citizenship</a>
-            <a href="contact.html">Contact</a>
-        </div>
-    </nav>
 
-    <main>
+    <!-- HERO -->
 
-        <section class="hero">
+    <section class="hero">
 
-            <h1>Welcome to the Empire of Nova-Berlandia</h1>
+        <div class="hero-inner">
+
+            <h1>
+                Welcome to the Empire of Nova-Berlandia
+            </h1>
 
             <p>
-                The official online portal of the Empire of Nova-Berlandia.
-                Find information about the Imperial Government, national
-                institutions, citizenship and public affairs.
+                The official website of the Government of
+                Nova-Berlandia. Find information about the Empire,
+                its institutions, government services and citizenship.
             </p>
 
-        </section>
-
-        <div class="notice">
-
-            <strong>Official Government Information</strong>
-
-            This website provides official information about the Empire
-            of Nova-Berlandia and its government.
+            <a
+                href="government.html"
+                class="hero-button">
+                Explore the Government
+            </a>
 
         </div>
+
+    </section>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="container">
+
+
+        <!-- OFFICIAL NOTICE -->
 
         <section class="section">
 
-            <h2>Government and public services</h2>
+            <div class="notice">
 
-            <div class="services">
+                <h3>
+                    Official Government Information
+                </h3>
 
-                <div class="service">
-                    <h3>Government</h3>
+                <p>
+                    This website provides official information about
+                    the Empire of Nova-Berlandia, its constitutional
+                    institutions and public services.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- SERVICES -->
+
+        <section class="section">
+
+            <h2>
+                Government and Public Services
+            </h2>
+
+            <div class="cards">
+
+                <div class="card">
+
+                    <h3>
+                        Government
+                    </h3>
+
                     <p>
-                        Learn about the Imperial Government and the institutions
-                        responsible for administering Nova-Berlandia.
+                        Learn about the Emperor, Parliament and the
+                        Government of Nova-Berlandia.
                     </p>
-                    <a href="government.html">View the Government →</a>
+
+                    <a href="government.html">
+                        View Government
+                    </a>
+
                 </div>
 
-                <div class="service">
-                    <h3>Government Departments</h3>
+
+                <div class="card">
+
+                    <h3>
+                        Departments
+                    </h3>
+
                     <p>
-                        Explore the ministries and departments of the
-                        Imperial Government.
+                        Explore the departments responsible for
+                        administering the Empire.
                     </p>
-                    <a href="departments.html">View departments →</a>
+
+                    <a href="departments.html">
+                        View Departments
+                    </a>
+
                 </div>
 
-                <div class="service">
-                    <h3>Citizenship</h3>
-                    <p>
-                        Information about citizenship and participation
-                        in the Empire.
-                    </p>
-                    <a href="citizenship.html">Citizenship information →</a>
-                </div>
 
-                <div class="service">
-                    <h3>National Information</h3>
-                    <p>
-                        Discover the history, institutions, symbols and
-                        national identity of Nova-Berlandia.
-                    </p>
-                    <a href="history.html">Explore Nova-Berlandia →</a>
-                </div>
+                <div class="card">
 
-                <div class="service">
-                    <h3>Imperial Institutions</h3>
-                    <p>
-                        Learn about the Crown and other constitutional
-                        institutions of the Empire.
-                    </p>
-                    <a href="government.html">Explore institutions →</a>
-                </div>
+                    <h3>
+                        Citizenship
+                    </h3>
 
-                <div class="service">
-                    <h3>Contact Government</h3>
                     <p>
-                        Find information about contacting the government
-                        and official representatives.
+                        Learn about citizenship and how to become
+                        part of Nova-Berlandia.
                     </p>
-                    <a href="contact.html">Contact information →</a>
+
+                    <a href="citizenship.html">
+                        Citizenship Information
+                    </a>
+
                 </div>
 
             </div>
 
         </section>
 
+
+        <!-- LATEST NEWS -->
+
         <section class="section">
 
-            <h2>Latest government news</h2>
+            <h2>
+                Latest Government News
+            </h2>
 
-            <div class="news-item">
+            <div class="news">
 
                 <div class="news-date">
                     5 September 2026
                 </div>
 
                 <h3>
-                    Welcome to the new official website
+                    Welcome to the Official Government Website
                 </h3>
 
                 <p>
-                    The Empire of Nova-Berlandia launches its new official
-                    government website.
+                    The official website of the Empire of Nova-Berlandia
+                    provides citizens and visitors with access to
+                    government information, institutions and public
+                    services.
                 </p>
-
-                <a href="#">Read more →</a>
-
-            </div>
-
-            <div class="news-item">
-
-                <div class="news-date">
-                    Government announcements
-                </div>
-
-                <h3>
-                    Official announcements
-                </h3>
-
-                <p>
-                    View the latest announcements and information issued
-                    by the Imperial Government.
-                </p>
-
-                <a href="#">View announcements →</a>
 
             </div>
 
         </section>
 
+
+        <!-- QUICK LINKS -->
+
         <section class="section">
 
-            <h2>Quick links</h2>
+            <h2>
+                Quick Links
+            </h2>
 
             <div class="quick-links">
 
-                <ul>
+                <a
+                    href="government.html"
+                    class="quick-link">
+                    Government of Nova-Berlandia →
+                </a>
 
-                    <li>
-                        <a href="government.html">
-                            Imperial Government
-                        </a>
-                    </li>
+                <a
+                    href="history.html"
+                    class="quick-link">
+                    History of Nova-Berlandia →
+                </a>
 
-                    <li>
-                        <a href="departments.html">
-                            Government Departments
-                        </a>
-                    </li>
+                <a
+                    href="citizenship.html"
+                    class="quick-link">
+                    Become a Citizen →
+                </a>
 
-                    <li>
-                        <a href="history.html">
-                            History of Nova-Berlandia
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="citizenship.html">
-                            Citizenship
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="contact.html">
-                            Contact the Government
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#">
-                            Official Documents
-                        </a>
-                    </li>
-
-                </ul>
+                <a
+                    href="contact.html"
+                    class="quick-link">
+                    Contact the Government →
+                </a>
 
             </div>
 
@@ -498,28 +648,66 @@
 
     </main>
 
+
+    <!-- FOOTER -->
+
     <footer>
 
-        <div class="footer-container">
+        <div class="footer-inner">
 
-            <strong>Empire of Nova-Berlandia</strong>
+            <p>
+                <strong>
+                    Empire of Nova-Berlandia
+                </strong>
+            </p>
 
-            <div class="footer-links">
+            <p>
+                Official Government Website
+            </p>
 
-                <a href="government.html">Government</a>
-                <a href="history.html">History</a>
-                <a href="citizenship.html">Citizenship</a>
-                <a href="contact.html">Contact</a>
-
-            </div>
-
-            <div class="copyright">
-                © 2026 Empire of Nova-Berlandia. Official Government Website.
-            </div>
+            <p>
+                © 2026 Government of Nova-Berlandia
+            </p>
 
         </div>
 
     </footer>
+
+
+    <!-- MENU JAVASCRIPT -->
+
+    <script>
+
+        function openMenu() {
+
+            document
+                .getElementById("sideMenu")
+                .classList
+                .add("open");
+
+            document
+                .getElementById("overlay")
+                .classList
+                .add("open");
+
+        }
+
+
+        function closeMenu() {
+
+            document
+                .getElementById("sideMenu")
+                .classList
+                .remove("open");
+
+            document
+                .getElementById("overlay")
+                .classList
+                .remove("open");
+
+        }
+
+    </script>
 
 </body>
 </html>
