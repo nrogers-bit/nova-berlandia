@@ -3,46 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Government | Empire of Nova-Berlandia</title>
-
-    <meta name="description" content="Information about the government and constitutional institutions of the Empire of Nova-Berlandia.">
 
     <style>
         * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
         }
 
         body {
+            margin: 0;
             font-family: Arial, Helvetica, sans-serif;
             background: #f3f2f1;
             color: #1b1b1b;
             line-height: 1.6;
         }
 
-        .top-bar {
-            background: #1d1d1d;
-            color: white;
-            font-size: 14px;
-        }
-
-        .top-container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 8px 24px;
-        }
-
         header {
             background: white;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #d8d8d8;
         }
 
-        .header-container {
+        .header-inner {
             max-width: 1200px;
             margin: auto;
-            padding: 22px 24px;
+            padding: 18px 25px;
             display: flex;
             align-items: center;
             gap: 20px;
@@ -59,6 +43,7 @@
         .site-title {
             font-size: 24px;
             font-weight: bold;
+            color: #111;
         }
 
         .site-subtitle {
@@ -67,10 +52,10 @@
         }
 
         nav {
-            background: #242424;
+            background: #1b1b1b;
         }
 
-        .nav-container {
+        .nav-inner {
             max-width: 1200px;
             margin: auto;
             display: flex;
@@ -82,36 +67,40 @@
             text-decoration: none;
             padding: 15px 20px;
             display: block;
-            font-size: 15px;
+            font-weight: bold;
+            font-size: 14px;
         }
 
         nav a:hover {
-            background: #3a3a3a;
-            text-decoration: underline;
+            background: #333;
         }
 
-        main {
+        .hero {
+            background: white;
+            border-bottom: 1px solid #d8d8d8;
+        }
+
+        .hero-inner {
             max-width: 1200px;
             margin: auto;
-            padding: 35px 24px 60px;
+            padding: 55px 25px;
         }
 
-        .page-header {
-            background: white;
-            padding: 40px;
-            border-left: 6px solid #333;
-            margin-bottom: 35px;
-        }
-
-        .page-header h1 {
+        .hero h1 {
             font-size: 42px;
-            margin-bottom: 10px;
+            margin: 0 0 10px;
         }
 
-        .page-header p {
-            max-width: 750px;
-            color: #555;
-            font-size: 17px;
+        .hero p {
+            font-size: 19px;
+            max-width: 850px;
+            color: #444;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 40px 25px;
         }
 
         .section {
@@ -119,21 +108,20 @@
         }
 
         .section h2 {
-            font-size: 28px;
+            font-size: 30px;
             margin-bottom: 20px;
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 10px;
+            border-bottom: 4px solid #1b1b1b;
+            padding-bottom: 8px;
         }
 
-        /* EMPEROR */
-
-        .emperor {
+        .emperor-box {
             background: white;
             border: 1px solid #d8d8d8;
             padding: 35px;
             display: grid;
-            grid-template-columns: 220px 1fr;
+            grid-template-columns: 250px 1fr;
             gap: 35px;
+            align-items: start;
         }
 
         .emperor-portrait {
@@ -144,23 +132,10 @@
             border: 1px solid #ccc;
         }
 
-        .emperor h3 {
-            font-size: 30px;
-            margin-bottom: 4px;
+        .emperor-box h3 {
+            margin-top: 0;
+            font-size: 28px;
         }
-
-        .emperor-title {
-            color: #666;
-            font-size: 16px;
-            margin-bottom: 20px;
-        }
-
-        .emperor p {
-            color: #444;
-            margin-bottom: 15px;
-        }
-
-        /* RESPONSIBILITIES */
 
         .responsibilities {
             display: grid;
@@ -171,74 +146,42 @@
 
         .responsibility {
             background: #f3f2f1;
-            border-left: 4px solid #333;
-            padding: 17px;
+            border-left: 5px solid #1b1b1b;
+            padding: 15px;
         }
 
         .responsibility strong {
             display: block;
-            margin-bottom: 3px;
+            margin-bottom: 5px;
         }
-
-        /* COAT OF ARMS */
 
         .arms-box {
             background: white;
             border: 1px solid #d8d8d8;
-            padding: 35px;
+            padding: 40px;
             display: grid;
-            grid-template-columns: 320px 1fr;
-            gap: 35px;
+            grid-template-columns: 430px 1fr;
+            gap: 45px;
             align-items: center;
         }
 
         .coat-of-arms {
-            width: 320px;
-            height: 400px;
+            width: 430px;
+            height: 520px;
             object-fit: contain;
             background: white;
+            display: block;
         }
 
         .arms-box h3 {
             font-size: 25px;
-            margin-bottom: 12px;
+            margin-top: 0;
         }
 
-        .arms-box p {
-            color: #555;
-            margin-bottom: 15px;
-        }
-
-        /* INFORMATION BOX */
-
-        .info-box {
-            background: white;
-            border: 1px solid #d8d8d8;
-            padding: 30px;
-        }
-
-        .info-box h3 {
-            font-size: 22px;
-            margin-bottom: 10px;
-        }
-
-        .info-box p {
-            color: #555;
-        }
-
-        .heir {
-            margin-top: 20px;
-            padding: 18px;
-            background: #f3f2f1;
-            border-left: 4px solid #333;
-        }
-
-        /* INSTITUTIONS */
-
-        .institutions {
+        .institution-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 18px;
+            gap: 20px;
         }
 
         .institution {
@@ -248,83 +191,59 @@
         }
 
         .institution h3 {
-            font-size: 20px;
-            margin-bottom: 8px;
+            margin-top: 0;
+            font-size: 22px;
         }
-
-        .institution p {
-            color: #555;
-            font-size: 15px;
-        }
-
-        /* FOOTER */
 
         footer {
-            background: #242424;
+            background: #1b1b1b;
             color: white;
-            padding: 40px 24px;
+            margin-top: 30px;
         }
 
-        .footer-container {
+        .footer-inner {
             max-width: 1200px;
             margin: auto;
+            padding: 30px 25px;
         }
 
-        .footer-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 25px;
-            margin: 20px 0;
+        .footer-inner p {
+            margin: 5px 0;
+            color: #ddd;
         }
-
-        .footer-links a {
-            color: white;
-            text-decoration: underline;
-        }
-
-        .copyright {
-            color: #bbb;
-            font-size: 13px;
-            border-top: 1px solid #555;
-            padding-top: 20px;
-        }
-
-        /* MOBILE */
 
         @media (max-width: 800px) {
+            .header-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
 
-            .emperor {
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .emperor-box {
                 grid-template-columns: 1fr;
-            }
-
-            .emperor-portrait {
-                width: 180px;
-                height: 230px;
-            }
-
-            .arms-box {
-                grid-template-columns: 1fr;
-            }
-
-            .coat-of-arms {
-                width: 250px;
-                height: 330px;
             }
 
             .responsibilities {
                 grid-template-columns: 1fr;
             }
 
-            .institutions {
+            .institution-grid {
                 grid-template-columns: 1fr;
             }
 
-            .page-header h1 {
-                font-size: 32px;
+            .arms-box {
+                grid-template-columns: 1fr;
+                padding: 25px;
             }
 
-            nav a {
-                width: 50%;
+            .coat-of-arms {
+                width: 100%;
+                max-width: 400px;
+                height: 480px;
+                margin: auto;
             }
         }
     </style>
@@ -332,291 +251,234 @@
 
 <body>
 
-    <div class="top-bar">
-        <div class="top-container">
-            Official website of the Empire of Nova-Berlandia
-        </div>
-    </div>
+<header>
+    <div class="header-inner">
 
-    <header>
-        <div class="header-container">
+        <img
+            src="flag.png"
+            alt="Flag of Nova-Berlandia"
+            class="site-flag"
+        >
+
+        <div>
+            <div class="site-title">Empire of Nova-Berlandia</div>
+            <div class="site-subtitle">Official Government Website</div>
+        </div>
+
+    </div>
+</header>
+
+<nav>
+    <div class="nav-inner">
+        <a href="index.html">Home</a>
+        <a href="government.html">Government</a>
+        <a href="departments.html">Departments</a>
+        <a href="history.html">History</a>
+        <a href="citizenship.html">Citizenship</a>
+        <a href="contact.html">Contact</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-inner">
+        <h1>Government of Nova-Berlandia</h1>
+        <p>
+            Learn about the constitutional institutions and leadership
+            of the Empire of Nova-Berlandia.
+        </p>
+    </div>
+</section>
+
+<main class="container">
+
+    <section class="section">
+        <h2>The Emperor</h2>
+
+        <div class="emperor-box">
 
             <img
-                src="flag.png"
-                alt="Flag of Nova-Berlandia"
-                class="site-flag"
+                src="portrait.png"
+                alt="Portrait of Emperor Reginald II"
+                class="emperor-portrait"
             >
 
             <div>
-                <div class="site-title">
-                    Empire of Nova-Berlandia
-                </div>
+                <h3>Emperor Reginald II</h3>
 
-                <div class="site-subtitle">
-                    Official Government Website
+                <p>
+                    The Emperor of Nova-Berlandia, otherwise known as the
+                    Imperial Berlandian Crown, is the constitutional head
+                    of state of the Empire of Nova-Berlandia.
+                </p>
+
+                <p>
+                    The office in its present form was established on
+                    <strong>20 August 2026</strong>, with
+                    <strong>Reginald II</strong> serving as the first
+                    monarch and incumbent Emperor.
+                </p>
+
+                <p>
+                    The Emperor serves as a person of national unity and
+                    security, protects and upholds the Constitution, and
+                    represents Nova-Berlandia in diplomatic matters.
+                </p>
+
+                <div class="responsibilities">
+
+                    <div class="responsibility">
+                        <strong>Head of State</strong>
+                        The constitutional head of the Empire.
+                    </div>
+
+                    <div class="responsibility">
+                        <strong>National Security</strong>
+                        Represents the security and stability of the nation.
+                    </div>
+
+                    <div class="responsibility">
+                        <strong>Protector of the Constitution</strong>
+                        Upholds and protects the Constitution.
+                    </div>
+
+                    <div class="responsibility">
+                        <strong>Chief Diplomat</strong>
+                        Represents Nova-Berlandia in diplomatic affairs.
+                    </div>
+
+                    <div class="responsibility">
+                        <strong>National Unity</strong>
+                        Serves as a symbol of unity for the Berlandian nation.
+                    </div>
+
+                    <div class="responsibility">
+                        <strong>Parliament</strong>
+                        Serves as a lifelong sitting member of Parliament
+                        and may serve as Acting Speaker.
+                    </div>
+
                 </div>
             </div>
 
         </div>
-    </header>
+    </section>
 
-    <nav>
-        <div class="nav-container">
-            <a href="index.html">Home</a>
-            <a href="government.html">Government</a>
-            <a href="departments.html">Departments</a>
-            <a href="history.html">History</a>
-            <a href="citizenship.html">Citizenship</a>
-            <a href="contact.html">Contact</a>
+
+    <section class="section">
+        <h2>Personal Coat of Arms</h2>
+
+        <div class="arms-box">
+
+            <img
+                src="coat-of-arms.png"
+                alt="Personal Coat of Arms of Emperor Reginald II"
+                class="coat-of-arms"
+            >
+
+            <div>
+                <h3>Personal Coat of Arms of Emperor Reginald II</h3>
+
+                <p>
+                    The personal coat of arms of Emperor Reginald II
+                    represents the Emperor and his position within the
+                    Empire of Nova-Berlandia.
+                </p>
+
+                <p>
+                    The arms are associated with the Emperor personally
+                    and are distinct from the national symbols of the
+                    Empire.
+                </p>
+            </div>
+
         </div>
-    </nav>
+    </section>
 
-    <main>
 
-        <section class="page-header">
-            <h1>Government</h1>
+    <section class="section">
+        <h2>Constitutional Institutions</h2>
+
+        <div class="institution-grid">
+
+            <div class="institution">
+                <h3>Parliament</h3>
+                <p>
+                    Parliament is the legislative institution of
+                    Nova-Berlandia. The Emperor is a lifelong sitting
+                    member and may serve as Acting Speaker.
+                </p>
+            </div>
+
+            <div class="institution">
+                <h3>Government</h3>
+                <p>
+                    The Government of Nova-Berlandia is responsible for
+                    the administration of the Empire and the implementation
+                    of government policy.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="section">
+        <h2>The Imperial Family</h2>
+
+        <div class="institution">
+            <h3>House of Torres</h3>
 
             <p>
-                Learn about the constitutional institutions and government
-                of the Empire of Nova-Berlandia.
+                The Imperial Family is officially known as the
+                <strong>House of Torres</strong>, consisting of the family
+                of the incumbent Emperor.
             </p>
-        </section>
 
-
-        <!-- EMPEROR -->
-
-        <section class="section">
-
-            <h2>The Emperor</h2>
-
-            <div class="emperor">
-
-                <img
-                    src="portrait.png"
-                    alt="Portrait of Emperor Reginald II"
-                    class="emperor-portrait"
-                >
-
-                <div>
-
-                    <h3>Emperor Reginald II</h3>
-
-                    <div class="emperor-title">
-                        Emperor of the Empire of Nova-Berlandia
-                    </div>
-
-                    <p>
-                        The Emperor of Nova-Berlandia is the constitutional
-                        head of state and serves as a symbol of national
-                        unity and security.
-                    </p>
-
-                    <p>
-                        The office of Emperor was established in its present
-                        form on 20 August 2026, with Reginald II serving as
-                        the first Emperor of the present Imperial Crown.
-                    </p>
-
-                    <div class="responsibilities">
-
-                        <div class="responsibility">
-                            <strong>Head of State</strong>
-                            Constitutional head of the Empire.
-                        </div>
-
-                        <div class="responsibility">
-                            <strong>National Security</strong>
-                            Serves as a symbol of the nation's security.
-                        </div>
-
-                        <div class="responsibility">
-                            <strong>Protector of the Constitution</strong>
-                            Protector and upholder of the Constitution.
-                        </div>
-
-                        <div class="responsibility">
-                            <strong>Chief Diplomat</strong>
-                            Represents Nova-Berlandia in diplomatic affairs.
-                        </div>
-
-                        <div class="responsibility">
-                            <strong>National Unity</strong>
-                            Serves as a person of national unity.
-                        </div>
-
-                        <div class="responsibility">
-                            <strong>Parliament</strong>
-                            A lifelong sitting member of Parliament.
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- PERSONAL COAT OF ARMS -->
-
-        <section class="section">
-
-            <h2>Personal Coat of Arms</h2>
-
-            <div class="arms-box">
-
-                <img
-                    src="coat-of-arms.png"
-                    alt="Personal Coat of Arms of Emperor Reginald II"
-                    class="coat-of-arms"
-                >
-
-                <div>
-
-                    <h3>Personal Coat of Arms of Emperor Reginald II</h3>
-
-                    <p>
-                        The personal coat of arms of Emperor Reginald II
-                        represents the Emperor and his position within the
-                        Empire of Nova-Berlandia.
-                    </p>
-
-                    <p>
-                        The arms are associated with the Emperor personally
-                        and are distinct from the national symbols of the
-                        Empire.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- IMPERIAL CROWN -->
-
-        <section class="section">
-
-            <h2>The Imperial Crown</h2>
-
-            <div class="info-box">
-
-                <h3>The Imperial Crown of Nova-Berlandia</h3>
-
-                <p>
-                    The Imperial Berlandian Crown is the institution of the
-                    Emperor and represents the constitutional monarchy of
-                    the Empire of Nova-Berlandia.
-                </p>
-
-                <p style="margin-top: 15px;">
-                    Under the Second Constitution of Nova-Berlandia, the
-                    Emperor is the person of national unity and a symbol
-                    of the nation's security as a whole.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- HOUSE OF TORRES -->
-
-        <section class="section">
-
-            <h2>House of Torres</h2>
-
-            <div class="info-box">
-
-                <h3>The Imperial Family</h3>
-
-                <p>
-                    The imperial family is officially known as the
-                    <strong>House of Torres</strong>, consisting of the
-                    family of the incumbent Emperor.
-                </p>
-
-                <div class="heir">
-
-                    <strong>Heir Apparent</strong>
-
-                    <br>
-
-                    Dayvian, Duke of Berchester
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- GOVERNMENT INSTITUTIONS -->
-
-        <section class="section">
-
-            <h2>Government institutions</h2>
-
-            <div class="institutions">
-
-                <div class="institution">
-
-                    <h3>Parliament</h3>
-
-                    <p>
-                        The legislative institution of Nova-Berlandia,
-                        responsible for parliamentary affairs and
-                        representation.
-                    </p>
-
-                </div>
-
-                <div class="institution">
-
-                    <h3>Government</h3>
-
-                    <p>
-                        The executive government responsible for the
-                        administration of the Empire.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <footer>
-
-        <div class="footer-container">
-
-            <strong>
-                Empire of Nova-Berlandia
-            </strong>
-
-            <div class="footer-links">
-
-                <a href="index.html">Home</a>
-                <a href="government.html">Government</a>
-                <a href="departments.html">Departments</a>
-                <a href="history.html">History</a>
-                <a href="citizenship.html">Citizenship</a>
-                <a href="contact.html">Contact</a>
-
-            </div>
-
-            <div class="copyright">
-                © 2026 Empire of Nova-Berlandia. Official Government Website.
-            </div>
+            <p>
+                The current heir apparent is
+                <strong>Dayvian, Duke of Berchester</strong>.
+            </p>
+        </div>
+    </section>
+
+
+    <section class="section">
+        <h2>Historical Background</h2>
+
+        <div class="institution">
+
+            <p>
+                The previous office of King of Nova-Berlandia existed
+                from <strong>28 November 2025</strong> until
+                <strong>17 February 2026</strong>, with Shane serving
+                as its only reigning monarch.
+            </p>
+
+            <p>
+                Following the dissolution of the United Commonwealth on
+                17 February 2026 and its replacement by the Republic of
+                Keystone, the position of King was abolished.
+            </p>
+
+            <p>
+                On <strong>20 August 2026</strong>, following the
+                formation of the Provisional Government, the monarchy
+                was restored. Shane was initially announced as King
+                before the title was changed to Emperor of Nova-Berlandia.
+            </p>
 
         </div>
+    </section>
 
-    </footer>
+</main>
+
+<footer>
+    <div class="footer-inner">
+        <p><strong>Empire of Nova-Berlandia</strong></p>
+        <p>Official Government Website</p>
+        <p>© 2026 Government of Nova-Berlandia</p>
+    </div>
+</footer>
 
 </body>
 </html>
