@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Departments | Empire of Nova-Berlandia</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f3f2f1;
+            color: #1b1b1b;
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+
+        header {
+            background: white;
+            border-bottom: 1px solid #d8d8d8;
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .site-flag {
+            width: 90px;
+            height: 60px;
+            object-fit: contain;
+            border: 1px solid #ccc;
+            background: white;
+        }
+
+        .site-title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .site-subtitle {
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* MENU BUTTON */
+
+        .menu-button {
+            background: #1b1b1b;
+            color: white;
+            border: none;
+            width: 55px;
+            height: 55px;
+            font-size: 28px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu-button:hover {
+            background: #333;
+        }
+
+        /* SLIDING MENU */
+
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -360px;
+            width: 360px;
+            height: 100vh;
+            background: white;
+            z-index: 1000;
+            box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2);
+            transition: right 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .side-menu.open {
+            right: 0;
+        }
+
+        .menu-header {
+            background: #1b1b1b;
+            color: white;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .menu-header h2 {
+            margin: 0;
+            font-size: 22px;
+        }
+
+        .close-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .menu-links a {
+            display: block;
+            padding: 20px 25px;
+            color: #1b1b1b;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .menu-links a:hover {
+            background: #f3f2f1;
+        }
+
+        /* OVERLAY */
+
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+        }
+
+        .overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* HERO */
+
+        .hero {
+            background: white;
+            border-bottom: 1px solid #d8d8d8;
+        }
+
+        .hero-inner {
+            max-width: 1200px;
+            margin: auto;
+            padding: 55px 25px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin: 0 0 10px;
+        }
+
+        .hero p {
+            font-size: 19px;
+            max-width: 850px;
+            color: #444;
+        }
+
+        /* CONTENT */
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 40px 25px;
+        }
+
+        .section {
+            margin-bottom: 45px;
+        }
+
+        .section h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+            border-bottom: 4px solid #1b1b1b;
+            padding-bottom: 8px;
+        }
+
+        /* DEPARTMENT CARDS */
+
+        .departments {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .department {
+            background: white;
+            border: 1px solid #d8d8d8;
+            padding: 30px;
+            min-height: 190px;
+        }
+
+        .department h3 {
+            margin-top: 0;
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .department p {
+            color: #444;
+        }
+
+        .department-number {
+            font-size: 14px;
+            font-weight: bold;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #1b1b1b;
+            color: white;
+            margin-top: 30px;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: auto;
+            padding: 30px 25px;
+        }
+
+        .footer-inner p {
+            margin: 5px 0;
+            color: #ddd;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            .header-inner {
+                padding: 15px;
+            }
+
+            .site-title {
+                font-size: 19px;
+            }
+
+            .site-subtitle {
+                font-size: 12px;
+            }
+
+            .site-flag {
+                width: 70px;
+                height: 47px;
+            }
+
+            .menu-button {
+                width: 50px;
+                height: 50px;
+            }
+
+            .side-menu {
+                width: 85%;
+                right: -85%;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .departments {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- SLIDING MENU -->
+
+    <div
+        class="overlay"
+        id="overlay"
+        onclick="closeMenu()">
+    </div>
+
+    <aside
+        class="side-menu"
+        id="sideMenu">
+
+        <div class="menu-header">
+
+            <h2>
+                Government Menu
+            </h2>
+
+            <button
+                class="close-button"
+                onclick="closeMenu()"
+                aria-label="Close menu">
+                ×
+            </button>
+
+        </div>
+
+        <div class="menu-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="government.html">
+                Government
+            </a>
+
+            <a href="departments.html">
+                Departments
+            </a>
+
+            <a href="history.html">
+                History
+            </a>
+
+            <a href="citizenship.html">
+                Citizenship
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="header-inner">
+
+            <div class="brand">
+
+                <img
+                    src="flag.png"
+                    alt="Flag of Nova-Berlandia"
+                    class="site-flag">
+
+                <div>
+
+                    <div class="site-title">
+                        Empire of Nova-Berlandia
+                    </div>
+
+                    <div class="site-subtitle">
+                        Official Government Website
+                    </div>
+
+                </div>
+
+            </div>
+
+            <button
+                class="menu-button"
+                onclick="openMenu()"
+                aria-label="Open menu">
+                ☰
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-inner">
+
+            <h1>
+                Government Departments
+            </h1>
+
+            <p>
+                The ministries of the Empire of Nova-Berlandia
+                are responsible for key areas of government
+                administration and national affairs.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="container">
+
+        <section class="section">
+
+            <h2>
+                Ministries of Nova-Berlandia
+            </h2>
+
+            <div class="departments">
+
+
+                <div class="department">
+
+                    <div class="department-number">
+                        Ministry I
+                    </div>
+
+                    <h3>
+                        Ministry of State and Foreign Affairs
+                    </h3>
+
+                    <p>
+                        The Ministry of State and Foreign Affairs
+                        is a ministry of the Government of the
+                        Empire of Nova-Berlandia.
+                    </p>
+
+                </div>
+
+
+                <div class="department">
+
+                    <div class="department-number">
+                        Ministry II
+                    </div>
+
+                    <h3>
+                        Ministry of the Treasury
+                    </h3>
+
+                    <p>
+                        The Ministry of the Treasury is a ministry
+                        of the Government of the Empire of
+                        Nova-Berlandia.
+                    </p>
+
+                </div>
+
+
+                <div class="department">
+
+                    <div class="department-number">
+                        Ministry III
+                    </div>
+
+                    <h3>
+                        Ministry of Defense
+                    </h3>
+
+                    <p>
+                        The Ministry of Defense is a ministry of
+                        the Government of the Empire of
+                        Nova-Berlandia.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-inner">
+
+            <p>
+                <strong>
+                    Empire of Nova-Berlandia
+                </strong>
+            </p>
+
+            <p>
+                Official Government Website
+            </p>
+
+            <p>
+                © 2026 Government of Nova-Berlandia
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- MENU JAVASCRIPT -->
+
+    <script>
+
+        function openMenu() {
+
+            document
+                .getElementById("sideMenu")
+                .classList
+                .add("open");
+
+            document
+                .getElementById("overlay")
+                .classList
+                .add("open");
+
+        }
+
+
+        function closeMenu() {
+
+            document
+                .getElementById("sideMenu")
+                .classList
+                .remove("open");
+
+            document
+                .getElementById("overlay")
+                .classList
+                .remove("open");
+
+        }
+
+    </script>
+
+</body>
+</html>
