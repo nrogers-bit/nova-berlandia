@@ -6,6 +6,8 @@
 
     <title>History | Empire of Nova-Berlandia</title>
 
+    <link rel="icon" type="image/png" href="favicon.png">
+
     <style>
         * {
             box-sizing: border-box;
@@ -14,22 +16,15 @@
         body {
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
-            background: #f3f2f1;
-            color: #1b1b1b;
-            line-height: 1.7;
+            color: #222;
+            background: #f5f5f5;
+            line-height: 1.6;
         }
-
-        /* HEADER */
 
         header {
-            background: white;
-            border-bottom: 1px solid #d8d8d8;
-        }
-
-        .header-inner {
-            max-width: 1200px;
-            margin: auto;
-            padding: 18px 25px;
+            background: #111;
+            color: white;
+            padding: 14px 6%;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -38,47 +33,128 @@
         .brand {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
         }
 
-        .site-flag {
-            width: 90px;
-            height: 60px;
+        .brand img {
+            width: 58px;
+            height: 38px;
             object-fit: contain;
-            border: 1px solid #ccc;
+        }
+
+        .brand h1 {
+            font-size: 20px;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .menu-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .hero {
             background: white;
+            padding: 65px 6%;
+            border-bottom: 1px solid #ddd;
         }
 
-        .site-title {
-            font-size: 24px;
-            font-weight: bold;
+        .hero-content {
+            max-width: 1100px;
+            margin: auto;
         }
 
-        .site-subtitle {
-            font-size: 14px;
+        .hero h2 {
+            font-size: 42px;
+            margin: 0 0 15px;
+            line-height: 1.15;
+        }
+
+        .hero p {
+            font-size: 19px;
+            max-width: 800px;
             color: #555;
         }
 
-        /* MENU BUTTON */
-
-        .menu-button {
-            background: #1b1b1b;
-            color: white;
-            border: none;
-            width: 55px;
-            height: 55px;
-            font-size: 28px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        main {
+            max-width: 1100px;
+            margin: auto;
+            padding: 55px 6%;
         }
 
-        .menu-button:hover {
-            background: #333;
+        section {
+            margin-bottom: 55px;
         }
 
-        /* SLIDING MENU */
+        section h2 {
+            font-size: 30px;
+            margin-bottom: 25px;
+        }
+
+        .intro {
+            background: white;
+            border-left: 5px solid #111;
+            padding: 25px 30px;
+        }
+
+        .timeline {
+            position: relative;
+            margin-top: 30px;
+        }
+
+        .timeline-item {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 30px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .date {
+            font-size: 16px;
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .timeline-item h3 {
+            margin: 0 0 12px;
+            font-size: 24px;
+        }
+
+        .timeline-item p {
+            color: #555;
+            margin: 0;
+        }
+
+        .period {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+
+        .period h3 {
+            margin-top: 0;
+            font-size: 23px;
+        }
+
+        .period p {
+            color: #555;
+        }
+
+        footer {
+            background: #111;
+            color: #ddd;
+            padding: 35px 6%;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* SIDE MENU */
 
         .side-menu {
             position: fixed;
@@ -98,42 +174,37 @@
         }
 
         .menu-header {
-            background: #1b1b1b;
-            color: white;
-            padding: 25px;
+            padding: 22px;
+            border-bottom: 1px solid #ddd;
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            align-items: center;
         }
 
         .menu-header h2 {
             margin: 0;
-            font-size: 22px;
+            font-size: 20px;
         }
 
         .close-button {
             background: none;
             border: none;
-            color: white;
-            font-size: 30px;
+            font-size: 28px;
             cursor: pointer;
         }
 
-        .menu-links a {
+        .side-menu a {
             display: block;
-            padding: 20px 25px;
-            color: #1b1b1b;
+            padding: 18px 25px;
+            color: #222;
             text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #eee;
+            font-size: 17px;
         }
 
-        .menu-links a:hover {
-            background: #f3f2f1;
+        .side-menu a:hover {
+            background: #f2f2f2;
         }
-
-        /* OVERLAY */
 
         .overlay {
             position: fixed;
@@ -142,7 +213,7 @@
             z-index: 999;
             opacity: 0;
             visibility: hidden;
-            transition: opacity 0.3s ease;
+            transition: 0.3s ease;
         }
 
         .overlay.open {
@@ -150,178 +221,10 @@
             visibility: visible;
         }
 
-        /* HERO */
+        @media (max-width: 700px) {
 
-        .hero {
-            background: white;
-            border-bottom: 1px solid #d8d8d8;
-        }
-
-        .hero-inner {
-            max-width: 1200px;
-            margin: auto;
-            padding: 60px 25px;
-        }
-
-        .hero h1 {
-            font-size: 46px;
-            margin: 0 0 10px;
-        }
-
-        .hero p {
-            font-size: 20px;
-            color: #444;
-            max-width: 850px;
-        }
-
-        /* CONTENT */
-
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            padding: 45px 25px;
-        }
-
-        .history-intro {
-            background: white;
-            border: 1px solid #d8d8d8;
-            padding: 30px;
-            margin-bottom: 45px;
-        }
-
-        .history-intro h2 {
-            margin-top: 0;
-            font-size: 28px;
-        }
-
-        /* TIMELINE */
-
-        .timeline {
-            position: relative;
-            margin: 0;
-            padding: 0;
-        }
-
-        .timeline::before {
-            content: "";
-            position: absolute;
-            left: 18px;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: #1b1b1b;
-        }
-
-        .timeline-item {
-            position: relative;
-            padding-left: 60px;
-            margin-bottom: 45px;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: 7px;
-            top: 5px;
-            width: 26px;
-            height: 26px;
-            background: white;
-            border: 5px solid #1b1b1b;
-            border-radius: 50%;
-            z-index: 2;
-        }
-
-        .timeline-card {
-            background: white;
-            border: 1px solid #d8d8d8;
-            padding: 30px;
-        }
-
-        .timeline-date {
-            display: inline-block;
-            background: #1b1b1b;
-            color: white;
-            padding: 7px 12px;
-            font-size: 14px;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .timeline-card h2 {
-            font-size: 28px;
-            margin: 0 0 20px;
-        }
-
-        .timeline-card h3 {
-            font-size: 21px;
-            margin-top: 30px;
-            margin-bottom: 8px;
-        }
-
-        .timeline-card h3:first-of-type {
-            margin-top: 0;
-        }
-
-        .timeline-card p {
-            margin: 0 0 16px;
-        }
-
-        /* IMPORTANT EVENTS */
-
-        .event-box {
-            background: #f3f2f1;
-            border-left: 5px solid #1b1b1b;
-            padding: 18px;
-            margin: 20px 0;
-        }
-
-        .event-box strong {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        /* FOOTER */
-
-        footer {
-            background: #1b1b1b;
-            color: white;
-            margin-top: 30px;
-        }
-
-        .footer-inner {
-            max-width: 1200px;
-            margin: auto;
-            padding: 30px 25px;
-        }
-
-        .footer-inner p {
-            margin: 5px 0;
-            color: #ddd;
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 800px) {
-
-            .header-inner {
-                padding: 15px;
-            }
-
-            .site-title {
-                font-size: 19px;
-            }
-
-            .site-subtitle {
-                font-size: 12px;
-            }
-
-            .site-flag {
-                width: 70px;
-                height: 47px;
-            }
-
-            .menu-button {
-                width: 50px;
-                height: 50px;
+            .hero h2 {
+                font-size: 34px;
             }
 
             .side-menu {
@@ -329,38 +232,9 @@
                 right: -85%;
             }
 
-            .hero h1 {
-                font-size: 34px;
-            }
-
-            .hero-inner {
-                padding: 50px 20px;
-            }
-
-            .container {
-                padding: 30px 15px;
-            }
-
-            .timeline::before {
-                left: 12px;
-            }
-
-            .timeline-item {
-                padding-left: 40px;
-            }
-
-            .timeline-dot {
-                left: 1px;
-                width: 24px;
-                height: 24px;
-            }
-
-            .timeline-card {
-                padding: 22px;
-            }
-
-            .timeline-card h2 {
-                font-size: 24px;
+            .timeline-item,
+            .period {
+                padding: 24px;
             }
         }
     </style>
@@ -368,614 +242,190 @@
 
 <body>
 
-    <!-- SLIDING MENU -->
-
-    <div
-        class="overlay"
-        id="overlay"
-        onclick="closeMenu()">
+<header>
+    <div class="brand">
+        <img src="flag.png" alt="Flag of Nova-Berlandia">
+        <h1>Empire of Nova-Berlandia</h1>
     </div>
 
-    <aside
-        class="side-menu"
-        id="sideMenu">
+    <button class="menu-button" onclick="openMenu()">☰</button>
+</header>
 
-        <div class="menu-header">
+<div class="overlay" id="overlay" onclick="closeMenu()"></div>
 
-            <h2>
-                Government Menu
-            </h2>
+<nav class="side-menu" id="sideMenu">
 
-            <button
-                class="close-button"
-                onclick="closeMenu()"
-                aria-label="Close menu">
-                ×
-            </button>
+    <div class="menu-header">
+        <h2>Government</h2>
+        <button class="close-button" onclick="closeMenu()">×</button>
+    </div>
 
-        </div>
+    <a href="index.html">Home</a>
+    <a href="government.html">Government</a>
+    <a href="departments.html">Departments</a>
+    <a href="history.html">History</a>
+    <a href="citizenship.html">Citizenship</a>
+    <a href="contact.html">Contact</a>
 
-        <div class="menu-links">
+</nav>
 
-            <a href="index.html">
-                Home
-            </a>
+<section class="hero">
+    <div class="hero-content">
 
-            <a href="government.html">
-                Government
-            </a>
+        <h2>History of Nova-Berlandia</h2>
 
-            <a href="departments.html">
-                Departments
-            </a>
+        <p>
+            Explore the history of Nova-Berlandia and the development of
+            its monarchy, government and constitutional system.
+        </p>
 
-            <a href="history.html">
-                History
-            </a>
+    </div>
+</section>
 
-            <a href="citizenship.html">
-                Citizenship
-            </a>
+<main>
 
-            <a href="contact.html">
-                Contact
-            </a>
+    <section>
+        <h2>Overview</h2>
 
-        </div>
-
-    </aside>
-
-
-    <!-- HEADER -->
-
-    <header>
-
-        <div class="header-inner">
-
-            <div class="brand">
-
-                <img
-                    src="flag.png"
-                    alt="Flag of Nova-Berlandia"
-                    class="site-flag">
-
-                <div>
-
-                    <div class="site-title">
-                        Empire of Nova-Berlandia
-                    </div>
-
-                    <div class="site-subtitle">
-                        Official Government Website
-                    </div>
-
-                </div>
-
-            </div>
-
-            <button
-                class="menu-button"
-                onclick="openMenu()"
-                aria-label="Open menu">
-                ☰
-            </button>
-
-        </div>
-
-    </header>
-
-
-    <!-- HERO -->
-
-    <section class="hero">
-
-        <div class="hero-inner">
-
-            <h1>
-                History of Nova-Berlandia
-            </h1>
-
+        <div class="intro">
             <p>
-                Explore the history of Nova-Berlandia, from the
-                establishment of the First Commonwealth in 2025
-                to the present Imperial era.
+                The history of Nova-Berlandia has included several changes
+                in its political and constitutional structure. The modern
+                Empire was established in August 2026 following the formation
+                of a Provisional Government and the creation of the Imperial
+                office.
             </p>
-
         </div>
-
     </section>
 
-
-    <!-- MAIN CONTENT -->
-
-    <main class="container">
-
-
-        <div class="history-intro">
-
-            <h2>
-                A History of Nova-Berlandia
-            </h2>
-
-            <p>
-                Nova-Berlandia has undergone several periods of
-                constitutional, political and territorial change
-                since its establishment in November 2025.
-            </p>
-
-            <p>
-                The modern Empire follows the earlier First Commonwealth,
-                the Republic of Keystone period and the establishment of
-                the Provisional Government in August 2026.
-            </p>
-
-        </div>
-
-
-        <!-- TIMELINE -->
+    <section>
+        <h2>Historical Timeline</h2>
 
         <div class="timeline">
 
-
-            <!-- FIRST COMMONWEALTH -->
-
             <div class="timeline-item">
+                <div class="date">28 November 2025</div>
 
-                <div class="timeline-dot"></div>
+                <h3>Kingdom of Nova-Berlandia</h3>
 
-                <div class="timeline-card">
-
-                    <div class="timeline-date">
-                        28 November 2025 – 17 February 2026
-                    </div>
-
-                    <h2>
-                        The First Commonwealth
-                    </h2>
-
-                    <p>
-                        On 28 November 2025, the United Commonwealth
-                        of Nova-Berlandia, also known as the First
-                        Commonwealth, was officially established.
-                    </p>
-
-                    <p>
-                        The state was established as a transcontinental
-                        parliamentary semi-constitutional monarchy.
-                        The King of Nova-Berlandia served as head of
-                        state and held one third of the government's
-                        power, while the Prime Minister held another
-                        third and Parliament held the final third.
-                    </p>
-
-
-                    <h3>
-                        The First Prime Minister
-                    </h3>
-
-                    <p>
-                        For the first 11 days, Mateo Gomez-Villalta
-                        served as the first Prime Minister. He served
-                        as an independent throughout his term.
-                    </p>
-
-                    <p>
-                        His administration was largely inactive,
-                        with Mateo attending approximately one to
-                        three meetings of Parliament.
-                    </p>
-
-
-                    <h3>
-                        The December 2025 Election
-                    </h3>
-
-                    <p>
-                        On 9 December 2025, the first general election
-                        of Nova-Berlandia was held to elect the Prime
-                        Minister.
-                    </p>
-
-                    <div class="event-box">
-
-                        <strong>
-                            Election Result
-                        </strong>
-
-                        Armani Ruiz received 45% of the voter
-                        percentage, followed by Mekhi Thomas with
-                        35% and Muslima Abusamatova with 20%.
-                        
-                    </div>
-
-                    <p>
-                        Armani Ruiz subsequently served as Prime
-                        Minister. His term was notably inactive,
-                        with King Shane von Berlandia handling bill
-                        proposals and parliamentary meetings for
-                        an extended period.
-                    </p>
-
-
-                    <h3>
-                        Vote of Confidence
-                    </h3>
-
-                    <p>
-                        On 5 January 2026, Shane von Berlandia issued
-                        a vote of confidence in Parliament to review
-                        Armani Ruiz's performance as Prime Minister.
-                    </p>
-
-                    <p>
-                        Out of the 11 members of Parliament, five
-                        participated in the vote, including the King,
-                        who had presided over Parliament throughout
-                        the nation's history at that point.
-                    </p>
-
-                    <div class="event-box">
-
-                        <strong>
-                            Result
-                        </strong>
-
-                        Armani Ruiz was removed from office, with
-                        60% of participating parliamentary voters
-                        voting to remove him.
-                        
-                    </div>
-
-                    <p>
-                        The decision was criticized by Leader of the
-                        Opposition Muslima Abusamatova, who argued
-                        that the vote had been conducted contrary to
-                        the constitutional provisions governing votes
-                        of confidence.
-                    </p>
-
-
-                    <h3>
-                        The Mekhi Thomas Government
-                    </h3>
-
-                    <p>
-                        Following Armani Ruiz's removal, Mekhi Thomas
-                        was inaugurated as the third Prime Minister
-                        during the parliamentary session in which
-                        the vote of confidence took place.
-                    </p>
-
-                    <p>
-                        During Mekhi Thomas's term, the Weather Bill
-                        was passed, establishing the Nova-Berlandian
-                        Weather Service. The service officially
-                        functioned for one day in preparation for
-                        a major winter storm and issued its first
-                        and only warning the following day.
-                    </p>
-
-                    <p>
-                        On 30 January 2026, two bills were passed
-                        unanimously: the <strong>Veteran Basic Needs
-                        Guarantee Act</strong> and the
-                        <strong>Project and Creation Act</strong>.
-                    </p>
-
-
-                    <h3>
-                        The February 2026 Election
-                    </h3>
-
-                    <p>
-                        On 9 February 2026, the second general election
-                        was held. Mekhi Thomas chose not to seek another
-                        term as Prime Minister.
-                    </p>
-
-                    <p>
-                        Progressive Equality instead put forward
-                        Kalisiana Grasty as its candidate.
-                    </p>
-
-                    <div class="event-box">
-
-                        <strong>
-                            Election Result
-                        </strong>
-
-                        Muslima Abusamatova won with seven votes,
-                        receiving 46.7% of the voter percentage.
-                        Madelyn Fidler received four votes,
-                        representing 26.7%.
-                        
-                    </div>
-
-                    <h3>
-                        The End of the First Commonwealth
-                    </h3>
-
-                    <p>
-                        Nova-Berlandia was declared inactive on
-                        17 February 2026 and was replaced by the
-                        Republic of Keystone.
-                    </p>
-
-                </div>
-
+                <p>
+                    The office of King of Nova-Berlandia was established.
+                    Shane became the sole reigning monarch during this period.
+                </p>
             </div>
 
-
-            <!-- AUGUST -->
-
             <div class="timeline-item">
+                <div class="date">17 February 2026</div>
 
-                <div class="timeline-dot"></div>
+                <h3>Dissolution of the United Commonwealth</h3>
 
-                <div class="timeline-card">
-
-                    <div class="timeline-date">
-                        August 2026
-                    </div>
-
-                    <h2>
-                        The Provisional Government
-                    </h2>
-
-                    <p>
-                        On 20 August 2026, the Provisional Government
-                        of Nova-Berlandia was established, marking
-                        the beginning of the current period of
-                        Nova-Berlandian government.
-                    </p>
-
-                    <p>
-                        The provisional government was headed jointly
-                        by Shane, serving as Emperor, and Jackson Hogan,
-                        serving as Prime Minister.
-                    </p>
-
-                    <p>
-                        Its establishment followed a brief period of
-                        political and territorial uncertainty involving
-                        Nova-Berlandia and the neighboring Grand
-                        Principality of Berlandia.
-                    </p>
-
-
-                    <h3>
-                        The Territorial Dispute
-                    </h3>
-
-                    <p>
-                        During this period, a brief territorial dispute
-                        emerged between Nova-Berlandia and the Grand
-                        Principality of Berlandia concerning their
-                        respective territorial claims.
-                    </p>
-
-                    <p>
-                        Although the dispute was short-lived, it resulted
-                        in a significant political settlement.
-                    </p>
-
-                    <div class="event-box">
-
-                        <strong>
-                            Political Settlement
-                        </strong>
-
-                        The Grand Principality of Berlandia was reformed
-                        into the Kingdom of Torvaley, while Nova-Berlandia
-                        secured its independence and received an
-                        additional province as part of the settlement.
-
-                    </div>
-
-                </div>
-
+                <p>
+                    The United Commonwealth was dissolved and replaced by
+                    the Republic of Keystone. The office of King of
+                    Nova-Berlandia was subsequently abolished.
+                </p>
             </div>
 
-
-            <!-- SEPTEMBER -->
-
             <div class="timeline-item">
+                <div class="date">20 August 2026</div>
 
-                <div class="timeline-dot"></div>
+                <h3>Formation of the Provisional Government</h3>
 
-                <div class="timeline-card">
-
-                    <div class="timeline-date">
-                        September 2026
-                    </div>
-
-                    <h2>
-                        The Constitutional and Imperial Era
-                    </h2>
-
-
-                    <h3>
-                        Constitutional Reform
-                    </h3>
-
-                    <p>
-                        On 30 August 2026, a draft Constitution was
-                        formally proposed to the House of Commons,
-                        the lower house of the Parliament of
-                        Nova-Berlandia.
-                    </p>
-
-                    <p>
-                        The draft passed the House of Commons by a
-                        vote of 8–0 on the following day before
-                        proceeding to a national referendum on
-                        1 September 2026.
-                    </p>
-
-                    <div class="event-box">
-
-                        <strong>
-                            Constitutional Referendum
-                        </strong>
-
-                        The Constitution passed by a landslide,
-                        with 16 citizens voting in favour and
-                        1 citizen voting against.
-
-                    </div>
-
-
-                    <h3>
-                        Diplomatic Dispute with Morella
-                    </h3>
-
-                    <p>
-                        On 1 September 2026, a diplomatic dispute
-                        occurred between Nova-Berlandia and the
-                        French micronation and mock government of
-                        Morella over proposed legislative and
-                        executive reforms.
-                    </p>
-
-                    <p>
-                        The dispute resulted in a national emergency
-                        being declared in Nova-Berlandia after
-                        Morella, in alliance with the Emu Empire and
-                        the micronational raider group Order of
-                        Nexizaria (NXI), came close to declaring war.
-                    </p>
-
-                    <p>
-                        The Order of Nexizaria was the only group to
-                        make a move during the dispute, leading to a
-                        second national emergency being declared by
-                        Prime Minister Jackson Hogan.
-                    </p>
-
-
-                    <h3>
-                        The New Greenian Succession Claim
-                    </h3>
-
-                    <p>
-                        On 2 September 2026, Emperor Reginald II
-                        announced a dynastic succession claim to the
-                        New Greenian throne through the Sovereign
-                        Empire of New Greenia.
-                    </p>
-
-                    <p>
-                        The claim was based on the period in Verdanian
-                        history during which Reginald I, his father,
-                        served as Emperor.
-                    </p>
-
-                    <p>
-                        The succession claim was later rescinded.
-                    </p>
-
-                </div>
-
+                <p>
+                    A Provisional Government was formed, beginning a new
+                    constitutional period for Nova-Berlandia.
+                </p>
             </div>
 
-
-            <!-- PRESENT DAY -->
-
             <div class="timeline-item">
+                <div class="date">20 August 2026</div>
 
-                <div class="timeline-dot"></div>
+                <h3>Establishment of the Imperial Office</h3>
 
-                <div class="timeline-card">
-
-                    <div class="timeline-date">
-                        Present Day
-                    </div>
-
-                    <h2>
-                        Nova-Berlandia Today
-                    </h2>
-
-                    <p>
-                        Nova-Berlandia currently operates under its
-                        modern constitutional system and the Imperial
-                        Crown.
-                    </p>
-
-                    <p>
-                        The Empire continues to develop its government,
-                        institutions and national identity following
-                        the constitutional reforms of 2026.
-                    </p>
-
-                </div>
-
+                <p>
+                    Shane was initially announced as King before the title
+                    was changed to Emperor of the Empire of Nova-Berlandia.
+                    The Imperial office was established in its present form.
+                </p>
             </div>
 
+            <div class="timeline-item">
+                <div class="date">20 August 2026</div>
+
+                <h3>Emperor Reginald II</h3>
+
+                <p>
+                    Reginald II became the first Emperor of the Empire of
+                    Nova-Berlandia and the incumbent holder of the Imperial
+                    office.
+                </p>
+            </div>
 
         </div>
+    </section>
 
-    </main>
+    <section>
+        <h2>The Modern Empire</h2>
 
+        <div class="period">
 
-    <!-- FOOTER -->
-
-    <footer>
-
-        <div class="footer-inner">
-
-            <p>
-                <strong>
-                    Empire of Nova-Berlandia
-                </strong>
-            </p>
+            <h3>The Imperial Constitution</h3>
 
             <p>
-                Official Government Website
-            </p>
-
-            <p>
-                © 2026 Government of Nova-Berlandia
+                Under the modern constitutional arrangement, the Emperor
+                serves as the constitutional head of state and a person of
+                national unity. The Emperor also protects and upholds the
+                Constitution and serves as Chief Diplomat for the
+                Berlandian nation.
             </p>
 
         </div>
 
-    </footer>
+        <div class="period">
 
+            <h3>The House of Torres</h3>
 
-    <!-- MENU JAVASCRIPT -->
+            <p>
+                The Imperial Family is officially known as the House of
+                Torres. The current heir apparent is Dayvian, Duke of
+                Berchester.
+            </p>
 
-    <script>
+        </div>
 
-        function openMenu() {
+        <div class="period">
 
-            document
-                .getElementById("sideMenu")
-                .classList
-                .add("open");
+            <h3>Parliament and Government</h3>
 
-            document
-                .getElementById("overlay")
-                .classList
-                .add("open");
+            <p>
+                The modern system provides for a Parliament and a Government
+                appointed by the Emperor upon the recommendation of Parliament.
+                The Emperor is also a lifelong sitting member of Parliament
+                and may serve as Acting Speaker.
+            </p>
 
-        }
+        </div>
+    </section>
 
+</main>
 
-        function closeMenu() {
+<footer>
+    <p>Empire of Nova-Berlandia</p>
+    <p>Official Government Website</p>
+    <p>© 2026 Government of Nova-Berlandia</p>
+</footer>
 
-            document
-                .getElementById("sideMenu")
-                .classList
-                .remove("open");
+<script>
+    function openMenu() {
+        document.getElementById("sideMenu").classList.add("open");
+        document.getElementById("overlay").classList.add("open");
+    }
 
-            document
-                .getElementById("overlay")
-                .classList
-                .remove("open");
-
-        }
-
-    </script>
+    function closeMenu() {
+        document.getElementById("sideMenu").classList.remove("open");
+        document.getElementById("overlay").classList.remove("open");
+    }
+</script>
 
 </body>
 </html>
